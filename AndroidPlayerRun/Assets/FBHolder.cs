@@ -3,8 +3,15 @@ using System.Collections;
 
 public class FBHolder : MonoBehaviour {
 
-	void Awake(){
+	public void Awake(){
 		FB.Init (SetInit, onHideUnity);
+
+	}
+
+
+	public void FBLogin(){
+
+		FB.Login ("user_about_me, user_birthday", AuthCallBack);
 	}
 
 	private void SetInit(){
@@ -12,7 +19,7 @@ public class FBHolder : MonoBehaviour {
 		if (FB.IsLoggedIn) {
 			Debug.Log ("Fb logged in");
 		} else {
-			FBLogin();
+			//FBLogin();
 		}
 	}
 
@@ -25,9 +32,7 @@ public class FBHolder : MonoBehaviour {
 		}
 	}
 
-	void FBLogin(){
-		FB.Login ("user_about_me, user_birthday", AuthCallBack);
-	}
+
 
 	void AuthCallBack(FBResult result){
 		if (FB.IsLoggedIn) {

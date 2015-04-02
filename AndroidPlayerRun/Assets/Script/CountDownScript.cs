@@ -10,6 +10,7 @@ public class CountDownScript : MonoBehaviour {
 	private int countDown; //current CountDown number
 	public GUIText guiTextCountDown; // reference of GUIText
 	public Canvas pauseButton;
+
 	public AudioSource countDownSound;
 	public bool isCountDown = false;
 
