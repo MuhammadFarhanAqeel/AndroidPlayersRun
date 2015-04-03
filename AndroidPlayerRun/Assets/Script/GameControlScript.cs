@@ -14,22 +14,24 @@ public class GameControlScript : MonoBehaviour {
 	public GameObject player;
 	private PlayerControl control;
 
+
 	void Start () {
 		Time.timeScale = 1;
 		control = GameObject.Find("Main Camera").GetComponent<PlayerControl> ();
 	}
 
 	void FixedUpdate () {
-	if (isGameOver)
+		if (isGameOver)
 			return; // if the gameover variable is true then it will jump out of the update method
-
+		
 		totalTimeElapsed += Time.deltaTime;
 		score = totalTimeElapsed * 10;
 		timeRemaining -= Time.deltaTime;
 
 		if (timeRemaining <= 0) {
-			isGameOver =true;
-			control.gameOverSound.Play();
+			isGameOver = true;
+			control.gameOverSound.Play ();
+
 		}
 	}
 
@@ -44,7 +46,7 @@ public class GameControlScript : MonoBehaviour {
 		}
 		//if game over, display game over menu with score
 		else
-		{
+		{			
 			player.SetActive(false);
 			countdown.GetComponent<CountDownScript>().pauseButton.enabled = false;
 			Time.timeScale = 0; //set the timescale to zero so as to stop the game world

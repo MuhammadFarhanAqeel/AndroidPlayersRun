@@ -8,7 +8,6 @@ public class PauseMenuScript : MonoBehaviour {
 	public string levelToLoad;
 	public bool paused = false;
 	public GameObject pause_button;
-	public GameObject facebook_button;
 	GameControlScript control;
 	public GameObject player;
 
@@ -24,11 +23,10 @@ public class PauseMenuScript : MonoBehaviour {
 		}
 		if (paused) {
 			pause_button.SetActive(false);
-			facebook_button.SetActive(true);
+
 			player.GetComponent<AudioSource>().enabled = false;
 		} else {
 			pause_button.SetActive(true);
-			facebook_button.SetActive(false);
 			player.GetComponent<AudioSource>().enabled = true;
 		}
 
@@ -38,13 +36,11 @@ public class PauseMenuScript : MonoBehaviour {
 			{
 				paused = false;
 				pause_button.SetActive(true);
-				facebook_button.SetActive(false);
 			} 
 			else
 			{
 				paused = true; 
 				pause_button.SetActive(false);
-				facebook_button.SetActive(true);
 
 			}
 		}

@@ -71,6 +71,7 @@
      <Compile Include="Assets\Script\PauseMenuScript.cs" />
      <Compile Include="Assets\Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\SpawnScript.cs" />
+     <Compile Include="Assets\Script\canvas_control.cs" />
      <Compile Include="Assets\Script\destroyObjects.cs" />
      <Compile Include="Assets\selfDestroy.cs" />
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
