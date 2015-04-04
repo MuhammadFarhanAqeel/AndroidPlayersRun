@@ -49,7 +49,6 @@
      <Compile Include="Assets\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\Examples\Scripts\GameGroupsConsole.cs" />
      <Compile Include="Assets\Examples\Scripts\InteractiveConsole.cs" />
-     <Compile Include="Assets\FBHolder.cs" />
      <Compile Include="Assets\Facebook\Scripts\AndroidFacebook.cs" />
      <Compile Include="Assets\Facebook\Scripts\AndroidFacebookLoader.cs" />
      <Compile Include="Assets\Facebook\Scripts\CanvasFacebookLoader.cs" />
@@ -65,15 +64,16 @@
      <Compile Include="Assets\Facebook\Scripts\NativeDialogModes.cs" />
      <Compile Include="Assets\Script\CollisionScript.cs" />
      <Compile Include="Assets\Script\CountDownScript.cs" />
+     <Compile Include="Assets\Script\FBHolder.cs" />
      <Compile Include="Assets\Script\GameControlScript.cs" />
      <Compile Include="Assets\Script\MainMenuScript.cs" />
      <Compile Include="Assets\Script\NavigationCredit.cs" />
      <Compile Include="Assets\Script\PauseMenuScript.cs" />
      <Compile Include="Assets\Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\SpawnScript.cs" />
+     <Compile Include="Assets\Script\Util.cs" />
      <Compile Include="Assets\Script\canvas_control.cs" />
-     <Compile Include="Assets\Script\destroyObjects.cs" />
-     <Compile Include="Assets\selfDestroy.cs" />
+     <Compile Include="Assets\Script\selfDestroy.cs" />
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\facebook\bin\R.txt" />
      <None Include="Assets\Plugins\Android\facebook\res\drawable\com_facebook_button_blue.xml" />

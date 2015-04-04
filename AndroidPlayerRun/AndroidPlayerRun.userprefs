@@ -1,19 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\canvas_control.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\PauseMenuScript.cs">
     <Files>
-      <File FileName="Assets\Script\PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\FBHolder.cs" Line="32" Column="35" />
+      <File FileName="Assets\Script\canvas_control.cs" Line="14" Column="14" />
+      <File FileName="Assets\Script\PlayerControl.cs" Line="81" Column="56" />
       <File FileName="Assets\Script\SpawnScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameControlScript.cs" Line="20" Column="70" />
-      <File FileName="Assets\Script\destroyObjects.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CountDownScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\CountDownScript.cs" Line="17" Column="52" />
       <File FileName="Assets\Script\CollisionScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\MainMenuScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NavigationCredit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PauseMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\FBHolder.cs" Line="1" Column="1" />
-      <File FileName="Assets\selfDestroy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\canvas_control.cs" Line="22" Column="1" />
+      <File FileName="Assets\Script\PauseMenuScript.cs" Line="7" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

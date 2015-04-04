@@ -74,18 +74,18 @@ public class PlayerControl : MonoBehaviour {
 			player.SimpleMove (pMov);	
 			player.GetComponent<Animation> ().Play ("run");
 
-			if (pause.paused == false){
-				gameObject.GetComponent<AudioSource>().enabled = true;
-			}
-			else
-			{
-				gameObject.GetComponent<AudioSource>().enabled = false;
+			if (pause.paused == false) {
+				player.GetComponent<AudioSource> ().enabled = true;
+
+			} else {
+				player.GetComponent<AudioSource> ().enabled = false;
 			}
 			
 		}
 		
 		if (Input.GetButton ("Jump") && player.isGrounded) {
-		PlayerJump ();
+			PlayerJump ();
+
 		}
 		
 		player.Move (moveDirection);
@@ -172,18 +172,15 @@ public class PlayerControl : MonoBehaviour {
 				hasSwiped = false;
 			}
 		}
-		if (control.isGameOver) {
-			gameObject.GetComponent<AudioSource>().enabled = false;
-		}
+
 	}
 
 	void PlayerJump(){
-		player.GetComponent<AudioSource> ().enabled = false;
 		isGrounded = false;
 		player.GetComponent<Animation> ().Stop ("run");
 		player.GetComponent<Animation> ().Play ("jump_pose");
+		player.GetComponent<AudioSource> ().enabled = false;
 		jumpSound.Play ();
-		gameObject.GetComponent<AudioSource> ().enabled = false;
 		moveDirection.y = jumpSpeed / 3f;
 	}
 }

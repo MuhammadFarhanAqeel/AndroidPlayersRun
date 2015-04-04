@@ -4,7 +4,6 @@ using System.Collections;
 public class CountDownScript : MonoBehaviour {
 
 	public GameObject character;
-	public GameObject backWall;
 	public GameObject mainCamera;
 	private int countMax =  3; 
 	private int countDown; //current CountDown number
@@ -22,10 +21,9 @@ public class CountDownScript : MonoBehaviour {
 			script.enabled = false;
 		}
 			character.GetComponent<CollisionScript>().enabled = false;
-			backWall.GetComponent<destroyObjects>().enabled = false;
 			mainCamera.GetComponent<PlayerControl>().enabled = false;
 			character.GetComponent<Animation>().enabled = false;
-		character.SetActive (false);
+			character.SetActive (false);
 			pauseButton.enabled = false;
 			StartCoroutine(CountDownFunction());
 		}
@@ -53,7 +51,6 @@ public class CountDownScript : MonoBehaviour {
 		}
 
 		character.GetComponent<CollisionScript> ().enabled = true;
-		backWall.GetComponent<destroyObjects> ().enabled = true;
 		mainCamera.GetComponent<PlayerControl> ().enabled = true;
 		character.GetComponent<Animation> ().enabled = true;
 		character.GetComponent<AudioSource> ().enabled = true;
