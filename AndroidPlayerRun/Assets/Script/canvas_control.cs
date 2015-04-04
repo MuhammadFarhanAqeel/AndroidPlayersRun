@@ -5,6 +5,7 @@ public class canvas_control : MonoBehaviour {
 
 	public Canvas facebook_canvas;
 	private GameControlScript control_script;
+	public GameObject Gameover_canvas;
 	
 
 	void Start () {
@@ -15,8 +16,10 @@ public class canvas_control : MonoBehaviour {
 	void Update () {
 		if (control_script.isGameOver) {
 			facebook_canvas.enabled = true;
+			Gameover_canvas.SetActive(true);
 		}else{
 			facebook_canvas.enabled = false;
+			Gameover_canvas.SetActive(false);
 		}
 	}
 }
