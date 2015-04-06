@@ -13,7 +13,8 @@ public class GameControlScript : MonoBehaviour {
 	public GameObject countdown;
 	public GameObject player;
 	private PlayerControl control;
-
+	public GameObject Gameover_canvas;
+	public GameObject facebook_canvas;
 
 	void Start () {
 		Time.timeScale = 1;
@@ -43,6 +44,9 @@ public class GameControlScript : MonoBehaviour {
 		if (!isGameOver) {
 			GUI.Label (new Rect (10, 10, Screen.width / 5, Screen.height / 6), "TIME LEFT: " + ((int)timeRemaining).ToString ());
 			GUI.Label (new Rect (Screen.width - (Screen.width / 6), 10, Screen.width / 6, Screen.height / 6), "SCORE: " + ((int)score).ToString ());
+			Gameover_canvas.SetActive(false);
+			facebook_canvas.SetActive(false);
+
 		}
 		//if game over, display game over menu with score
 		else {
@@ -52,6 +56,8 @@ public class GameControlScript : MonoBehaviour {
 			
 			//display the final score
 			GUI.Box (new Rect (Screen.width / 4, Screen.height / 4, Screen.width / 2, Screen.height / 2), "GAME OVER\nYOUR SCORE: " + (int)score);
+			Gameover_canvas.SetActive(true);
+			facebook_canvas.SetActive(true);
 		}
 	}
 

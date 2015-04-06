@@ -106,7 +106,7 @@ public class FBHolder : MonoBehaviour {
 			linkCaption: "I am playing this awesome Game",
 			picture: "http://images.clipartpanda.com/runner-clipart-runner-hi.png",
 			linkName: "Check out this game",
-			link: "http://apps.facebook.com" +FB.AppId +"/?challange_brag=" +(FB.IsLoggedIn?FB.UserId: "guest")
+			link: "http://apps.facebook.com/" +FB.AppId +"/?challange_brag=" +(FB.IsLoggedIn?FB.UserId: "guest")
 			);
 	}
 	
