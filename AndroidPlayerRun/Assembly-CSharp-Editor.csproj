@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{650CE378-9BEC-D0C4-0DCE-0E12D74C4AE2}</ProjectGuid>
+	<ProjectGuid>{A54D3379-CE48-AF01-4EC1-52357F3E871C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -119,7 +119,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/Farhan/Documents/Github/AndroidPlayersRun/AndroidPlayerRun/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/Farhan/Documents/Github/PlayersRun/PlayerRun/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{725E70E5-C384-274F-A767-21A00EB41C69}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{93D6387B-98DB-A4CD-331B-D093400FA502}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

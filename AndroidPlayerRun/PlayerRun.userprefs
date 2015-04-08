@@ -1,18 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FBHolder.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\FBHolder.cs">
     <Files>
-      <File FileName="Assets\Script\PlayerControl.cs" Line="179" Column="1" />
-      <File FileName="Assets\Script\SpawnScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CountDownScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PauseMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\MainMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CollisionScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\destroyObjects.cs" Line="1" Column="1" />
-      <File FileName="Assets\selfDestroy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\NavigationCredit.cs" Line="1" Column="1" />
-      <File FileName="Assets\FBHolder.cs" Line="22" Column="23" />
+      <File FileName="Assets\Script\FBHolder.cs" Line="139" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

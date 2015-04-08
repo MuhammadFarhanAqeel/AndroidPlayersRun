@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{725E70E5-C384-274F-A767-21A00EB41C69}</ProjectGuid>
+	<ProjectGuid>{93D6387B-98DB-A4CD-331B-D093400FA502}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -72,6 +72,7 @@
      <Compile Include="Assets\Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\SpawnScript.cs" />
      <Compile Include="Assets\Script\Util.cs" />
+     <Compile Include="Assets\Script\destroyObjects.cs" />
      <Compile Include="Assets\Script\selfDestroy.cs" />
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\facebook\bin\R.txt" />
@@ -123,7 +124,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
- <HintPath>C:/Users/Farhan/Documents/Github/AndroidPlayersRun/AndroidPlayerRun/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
+ <HintPath>C:/Users/Farhan/Documents/Github/PlayersRun/PlayerRun/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

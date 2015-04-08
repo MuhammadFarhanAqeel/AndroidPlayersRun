@@ -9,10 +9,11 @@ public class FBHolder : MonoBehaviour {
 	public GameObject UIFBNotLoggedIn;
 	public GameObject UIFBAvatar;
 	public GameObject UIFBUserName;
-	public Text ScoresDebug;
 	private List<object> scoresList = null;
 
 	private Dictionary<string,string> profile;
+	public GameObject scoreEntryPanel;
+	public GameObject scoreScrollList;
 	
 	void Awake()
 	{
@@ -41,7 +42,7 @@ public class FBHolder : MonoBehaviour {
 	
 	public void FBLogin()
 	{
-		FB.Login ("email", AuthCallback);
+		FB.Login ("email,publish_actions", AuthCallback);
 	}
 	
 	void AuthCallback(FBResult result)
@@ -125,20 +126,50 @@ public class FBHolder : MonoBehaviour {
 	}
 
 	private void ScoresCallBack(FBResult result){
-		ScoresDebug.text = "";
-
 		scoresList = Util.DeserializeScores (result.Text);
 
-		foreach(object score in scoresList){
-			var entry = (Dictionary<string,object>) score;
-			var user = (Dictionary<string,object>) entry["user"];
-
-			ScoresDebug.text = ScoresDebug.text + "UserName: " +user["name"]+" - "+entry["score"]+", ";
+		foreach (Transform child in scoreScrollList.transform) {
+			GameObject.Destroy(child.gameObject);
 		}
 
+		foreach (object score in scoresList) {
+			var entry = (Dictionary<string,object>)score;
+			var user = (Dictionary<string,object>)entry ["user"];
+
+			GameObject scorePanel;
+			scorePanel = Instantiate(scoreEntryPanel) as GameObject;
+			scorePanel.transform.parent = scoreScrollList.transform;
+
+			Transform thisScoreName = scorePanel.transform.Find("FriendName");
+			Transform thisScoreScore = scorePanel.transform.Find("FriendScore");
+
+			Text scoreName = thisScoreName.GetComponent<Text>();
+			Text scoreScore = thisScoreScore.GetComponent<Text>();
+
+			scoreName.text = user["name"].ToString();
+			scoreScore.text = entry["score"].ToString();
+
+			Transform theUserAvatar = scorePanel.transform.Find("FriendAvatar");
+			Image UserAvatar = theUserAvatar.GetComponent<Image>();
+
+			FB.API(Util.GetPictureURL(user["id"].ToString(),128,128),Facebook.HttpMethod.GET,delegate(FBResult pictureResult){
+				if(pictureResult.Error!=null) // if there is an error!
+				{
+					Debug.Log(pictureResult.Error);
+				}else{
+					UserAvatar.sprite = Sprite.Create(pictureResult.Texture,new Rect(0,0,128,128), new Vector2(0,0));
+				}
+
+			});
+
+		}
 	}
 
 	public void SetScore(){
-
+		var scoreData = new Dictionary<string,string> ();
+		scoreData ["score"] = Random.Range (10, 200).ToString ();
+		FB.API ("/me/scores", Facebook.HttpMethod.POST, delegate(FBResult result) {
+			Debug.Log ("score submit result: " + result.Text);
+		}, scoreData);
 	}
 }
