@@ -41,7 +41,7 @@ public class PlayerControl : MonoBehaviour {
 
 	void Start () {
 
-
+      //  player = GetComponent<CharacterController>();
 		count = GameObject.Find("GameController").GetComponent<CountDownScript> ();
 		pause = GameObject.Find("GameController").GetComponent<PauseMenuScript> ();
 		control = GameObject.Find ("GameController").GetComponent<GameControlScript> ();
@@ -67,12 +67,12 @@ public class PlayerControl : MonoBehaviour {
 	void FixedUpdate(){
 		playerZposition = player.transform.position.z;
 		player.transform.position += new Vector3 (0, 0, speed);
-		//pMov = new Vector3 (Input.GetAxis ("Horizontal") * pSpeed , 0, 0);
-		pMov = new Vector3 (Input.acceleration.x *pSpeed, 0, 0);
+		pMov = new Vector3 (Input.GetAxis ("Horizontal") * pSpeed , 0, 0);
+		//pMov = new Vector3 (Input.acceleration.x *pSpeed, 0, 0);
 
 		if (player.isGrounded) {
 			player.SimpleMove (pMov);	
-			player.GetComponent<Animation> ().Play ("run");
+		//	player.GetComponent<Animation> ().Play ("mixamo.com");
 
 			if (pause.paused == false) {
 				player.GetComponent<AudioSource> ().enabled = true;
@@ -177,8 +177,8 @@ public class PlayerControl : MonoBehaviour {
 
 	void PlayerJump(){
 		isGrounded = false;
-		player.GetComponent<Animation> ().Stop ("run");
-		player.GetComponent<Animation> ().Play ("jump_pose");
+	//	player.GetComponent<Animation> ().Stop ("run");
+	//	player.GetComponent<Animation> ().Play ("mixamo.com");
 		player.GetComponent<AudioSource> ().enabled = false;
 		jumpSound.Play ();
 		moveDirection.y = jumpSpeed / 3f;

@@ -22,7 +22,7 @@ public class CountDownScript : MonoBehaviour {
 		}
 			character.GetComponent<CollisionScript>().enabled = false;
 			mainCamera.GetComponent<PlayerControl>().enabled = false;
-			character.GetComponent<Animation>().enabled = false;
+		//	character.GetComponent<Animation>().enabled = false;
 			character.SetActive (false);
 			pauseButton.enabled = false;
 			StartCoroutine(CountDownFunction());
@@ -52,7 +52,7 @@ public class CountDownScript : MonoBehaviour {
 
 		character.GetComponent<CollisionScript> ().enabled = true;
 		mainCamera.GetComponent<PlayerControl> ().enabled = true;
-		character.GetComponent<Animation> ().enabled = true;
+	//	character.GetComponent<Animation> ().enabled = true;
 		character.GetComponent<AudioSource> ().enabled = true;
 		guiTextCountDown.enabled = false;
 		character.SetActive (true);

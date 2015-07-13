@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameControlScript : MonoBehaviour {
 
@@ -8,13 +9,17 @@ public class GameControlScript : MonoBehaviour {
 	float timeDeduction = 4f; //time to reduce on collecting the snag
 	float totalTimeElapsed = 0; 
 	public float score = 0f;			// total score
-	public bool isGameOver = false; 
+	public bool isGameOver = true; 
 	public GUISkin skin; 
 	public GameObject countdown;
 	public GameObject player;
 	private PlayerControl control;
 	public GameObject Gameover_canvas;
-	public GameObject facebook_canvas;
+	//public GameObject facebook_canvas;
+    public Canvas mainCanvas;
+    public Text ScoreGui;
+    public Text TimeLeftGui;
+    public Text gameOverTitle;
 
 	void Start () {
 		Time.timeScale = 1;
@@ -42,22 +47,24 @@ public class GameControlScript : MonoBehaviour {
 		GUI.skin = skin;
 		//check if game is not over, if so, display the score and the time left
 		if (!isGameOver) {
-			GUI.Label (new Rect (10, 10, Screen.width / 5, Screen.height / 6), "TIME LEFT: " + ((int)timeRemaining).ToString ());
-			GUI.Label (new Rect (Screen.width - (Screen.width / 6), 10, Screen.width / 6, Screen.height / 6), "SCORE: " + ((int)score).ToString ());
-			Gameover_canvas.SetActive(false);
-			facebook_canvas.SetActive(false);
+           TimeLeftGui.text = ((int)timeRemaining).ToString();
+           ScoreGui.text = ((int)score).ToString();
+
+            Gameover_canvas.SetActive(false);
+			//facebook_canvas.SetActive(false);
 
 		}
 		//if game over, display game over menu with score
 		else {
 			player.SetActive (false);
-			countdown.GetComponent<CountDownScript> ().pauseButton.enabled = false;
+			countdown.GetComponent<CountDownScript> ().pauseButton.enabled = true;
 			Time.timeScale = 0; //set the timescale to zero so as to stop the game world
 			
 			//display the final score
-			GUI.Box (new Rect (Screen.width / 4, Screen.height / 4, Screen.width / 2, Screen.height / 2), "GAME OVER\nYOUR SCORE: " + (int)score);
-			Gameover_canvas.SetActive(true);
-			facebook_canvas.SetActive(true);
+            gameOverTitle.text = "Your Score: " + (int)score;
+            
+            Gameover_canvas.SetActive(true);
+			//facebook_canvas.SetActive(true);
 		}
 	}
 

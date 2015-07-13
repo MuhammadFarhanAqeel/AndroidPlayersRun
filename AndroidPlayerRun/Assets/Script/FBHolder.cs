@@ -14,12 +14,28 @@ public class FBHolder : MonoBehaviour {
 	private Dictionary<string,string> profile;
 	public GameObject scoreEntryPanel;
 	public GameObject scoreScrollList;
-	
+    public GameObject GameController;
+
 	void Awake()
 	{
 		FB.Init (SetInit, OnHideUnity);
 	}
-	
+
+    void Start()
+    {
+        if (FB.IsLoggedIn)
+        {
+            if (Application.loadedLevel == 1)
+            {
+                FB.API(Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, DealWithProfilePictures);
+
+                // get username code
+                FB.API("/me?fields=id,first_name", Facebook.HttpMethod.GET, DealWithUserName);
+
+            }
+        }
+    }
+
 	private void SetInit()
 	{
 		Debug.Log("Fb init done!!");
@@ -58,21 +74,25 @@ public class FBHolder : MonoBehaviour {
 	
 	void DealWithFBMenus(bool isLoggedIn)
 	{
-		if (isLoggedIn) {
-			UIFBIsLoggedIn.SetActive (true);
-			UIFBNotLoggedIn.SetActive (false);
-			
-			// get profile picture code
-			
-			FB.API(Util.GetPictureURL("me",128,128),Facebook.HttpMethod.GET, DealWithProfilePictures);
-			
-			// get username code
-			FB.API ("/me?fields=id,first_name",Facebook.HttpMethod.GET, DealWithUserName);
-			
-		} else {
-			UIFBIsLoggedIn.SetActive (false);
-			UIFBNotLoggedIn.SetActive (true);
-		}
+        if (isLoggedIn)
+        {
+                UIFBIsLoggedIn.SetActive(true);
+                UIFBNotLoggedIn.SetActive(false);
+
+                // get profile picture code
+                if (Application.loadedLevel == 1)
+                {
+                    FB.API(Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, DealWithProfilePictures);
+
+                    // get username code
+                    FB.API("/me?fields=id,first_name", Facebook.HttpMethod.GET, DealWithUserName);
+                }
+        }
+        else
+        {
+            UIFBIsLoggedIn.SetActive(false);
+            UIFBNotLoggedIn.SetActive(true);
+        }
 	}
 	
 	
@@ -98,7 +118,7 @@ public class FBHolder : MonoBehaviour {
 		profile = Util.DeserializeJSONProfile (result.Text);
 		
 		Text userMsg = UIFBUserName.GetComponent<Text> ();
-		userMsg.text = "Hello, " +profile["first_name"];
+		userMsg.text = profile["first_name"];
 	}
 	
 	
@@ -167,9 +187,21 @@ public class FBHolder : MonoBehaviour {
 
 	public void SetScore(){
 		var scoreData = new Dictionary<string,string> ();
-		scoreData ["score"] = Random.Range (10, 200).ToString ();
+		scoreData ["score"] = (GameController.GetComponent<GameControlScript>().score).ToString();
 		FB.API ("/me/scores", Facebook.HttpMethod.POST, delegate(FBResult result) {
 			Debug.Log ("score submit result: " + result.Text);
 		}, scoreData);
 	}
+    void Update() 
+    {/*
+        if (Application.loadedLevel == 1)
+        {
+            Debug.Log(GameController.GetComponent<GameControlScript>().isGameOver);
+            if (FB.IsLoggedIn && GameController.GetComponent<GameControlScript>().isGameOver == true)
+            {
+                SetScore();
+            }
+        } */
+
+    }
 }

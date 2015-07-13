@@ -1,0 +1,62 @@
+# Exported from Fuse 1.3.0
+
+newmtl Hair
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Boy_Hair_diffuse.png
+map_Ks Boy_Hair_specular.png
+bump Boy_Hair_normal.png
+map_Ns Boy_Hair_gloss.png
+
+newmtl Shoes
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Boy_Shoes_diffuse.png
+map_Ks Boy_Shoes_specular.png
+bump Boy_Shoes_normal.png
+map_Ns Boy_Shoes_gloss.png
+
+newmtl Top
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Boy_Top_diffuse.png
+map_Ks Boy_Top_specular.png
+bump Boy_Top_normal.png
+map_Ns Boy_Top_gloss.png
+
+newmtl Body
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Boy_Body_diffuse.png
+map_Ks Boy_Body_specular.png
+bump Boy_Body_normal.png
+map_Ns Boy_Body_gloss.png
+
+newmtl Bottom
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd Boy_Bottom_diffuse.png
+map_Ks Boy_Bottom_specular.png
+bump Boy_Bottom_normal.png
+map_Ns Boy_Bottom_gloss.png
+
