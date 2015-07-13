@@ -5,16 +5,17 @@ using System.Collections.Generic;
 
 public class FBHolder : MonoBehaviour {
 	
-	public GameObject UIFBIsLoggedIn;
-	public GameObject UIFBNotLoggedIn;
+	public GameObject UIFBShare;
+	public GameObject UIFBInvite;
 	public GameObject UIFBAvatar;
 	public GameObject UIFBUserName;
+    public GameObject UIFBLoginButton;
 	private List<object> scoresList = null;
 
 	private Dictionary<string,string> profile;
 	public GameObject scoreEntryPanel;
 	public GameObject scoreScrollList;
-    public GameObject GameController;
+    public GameControlScript GameController;
 
 	void Awake()
 	{
@@ -23,10 +24,13 @@ public class FBHolder : MonoBehaviour {
 
     void Start()
     {
+
         if (FB.IsLoggedIn)
         {
+            UIFBLoginButton.SetActive(false);
             if (Application.loadedLevel == 1)
             {
+                GameController = this.GetComponent<GameControlScript>();
                 FB.API(Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, DealWithProfilePictures);
 
                 // get username code
@@ -76,10 +80,12 @@ public class FBHolder : MonoBehaviour {
 	{
         if (isLoggedIn)
         {
-                UIFBIsLoggedIn.SetActive(true);
-                UIFBNotLoggedIn.SetActive(false);
-
-                // get profile picture code
+            UIFBShare.SetActive(true);
+            UIFBInvite.SetActive(true);
+            UIFBLoginButton.SetActive(false);
+            
+               
+            // get profile picture code
                 if (Application.loadedLevel == 1)
                 {
                     FB.API(Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, DealWithProfilePictures);
@@ -90,8 +96,11 @@ public class FBHolder : MonoBehaviour {
         }
         else
         {
-            UIFBIsLoggedIn.SetActive(false);
-            UIFBNotLoggedIn.SetActive(true);
+            UIFBShare.SetActive(false);
+            UIFBInvite.SetActive(false);
+            UIFBAvatar.SetActive(false);
+            UIFBUserName.SetActive(false);
+            UIFBLoginButton.SetActive(true);
         }
 	}
 	
@@ -106,7 +115,6 @@ public class FBHolder : MonoBehaviour {
 		Image UserAvatar = UIFBAvatar.GetComponent<Image> ();
 		UserAvatar.sprite = Sprite.Create (result.Texture, new Rect (0, 0, 128, 128), new Vector2 (0, 0)); 
 	}
-	
 	
 	void DealWithUserName(FBResult result)
 	{
