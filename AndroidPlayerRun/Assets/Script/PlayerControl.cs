@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour {
 	private float gravity = 10f;
 	float playerZposition;
 	private bool isGrounded;
-	private float pSpeed = 12f;
+	private float pSpeed = 15f;
 	public GameObject ScoreAndSpawnrate; // external object to manage dificulty
 	GameControlScript control;
 	//touch inputs
@@ -83,7 +83,7 @@ public class PlayerControl : MonoBehaviour {
 			
 		}
 		
-		if (Input.GetButton ("Jump") && player.isGrounded) {
+		if (Input.GetKey(KeyCode.Space) && player.isGrounded) {
 			PlayerJump ();
 
 		}

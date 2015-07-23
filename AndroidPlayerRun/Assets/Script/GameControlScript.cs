@@ -20,26 +20,29 @@ public class GameControlScript : MonoBehaviour {
     public Text ScoreGui;
     public Text TimeLeftGui;
     public Text gameOverTitle;
-
+    
 	void Start () {
 		Time.timeScale = 1;
 		control = GameObject.Find("Main Camera").GetComponent<PlayerControl> ();
-	}
+       
+    }
 
 	void FixedUpdate () {
-		if (isGameOver) 
-			return; // if the gameover variable is true then it will jump out of the update method
+		if (Application.loadedLevel == 1) {
+			if (isGameOver) 
+				return; // if the gameover variable is true then it will jump out of the update method
 
-		totalTimeElapsed += Time.deltaTime;
-		score = totalTimeElapsed * 10;
-		timeRemaining -= Time.deltaTime;
+			totalTimeElapsed += Time.deltaTime;
+			score = totalTimeElapsed * 10;
+			timeRemaining -= Time.deltaTime;
+        
 
-		if (timeRemaining <= 0) {
-			isGameOver = true;
-			control.gameOverSound.Play ();
+			if (timeRemaining <= 0) {
+				timeRemaining = 0;
+				isGameOver = true;
+				control.gameOverSound.Play ();
+			}
 		}
-
-
 	}
 
 	void OnGUI()
