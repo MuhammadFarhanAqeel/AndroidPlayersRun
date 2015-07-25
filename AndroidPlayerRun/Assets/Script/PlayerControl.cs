@@ -67,8 +67,8 @@ public class PlayerControl : MonoBehaviour {
 	void FixedUpdate(){
 		playerZposition = player.transform.position.z;
 		player.transform.position += new Vector3 (0, 0, speed);
-		pMov = new Vector3 (Input.GetAxis ("Horizontal") * pSpeed , 0, 0);
-		//pMov = new Vector3 (Input.acceleration.x *pSpeed, 0, 0);
+		//pMov = new Vector3 (Input.GetAxis ("Horizontal") * pSpeed , 0, 0);
+		pMov = new Vector3 (Input.acceleration.x *pSpeed, 0, 0);
 
 		if (player.isGrounded) {
 			player.SimpleMove (pMov);	

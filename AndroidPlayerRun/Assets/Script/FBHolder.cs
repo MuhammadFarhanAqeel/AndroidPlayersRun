@@ -6,8 +6,7 @@ using System.Collections.Generic;
 public class FBHolder : MonoBehaviour
 {
 
-    public GameObject UIFBShare;
-    public GameObject UIFBInvite;
+    
     public GameObject UIFBAvatar;
     public GameObject UIFBUserName;
     public GameObject UIFBLoginButton;
@@ -17,11 +16,13 @@ public class FBHolder : MonoBehaviour
     public GameObject scoreEntryPanel;
     public GameObject scoreScrollList;
     public GameControlScript GameController;
+    public GameObject FbScoreButton;
+    public GameObject GameOverPanel;
+    public GameObject FBScorePanel;
 
     void Awake()
     {
         FB.Init(SetInit, OnHideUnity);
-        
     }
 
     void Start()
@@ -30,6 +31,7 @@ public class FBHolder : MonoBehaviour
         if (FB.IsLoggedIn)
         {
             UIFBLoginButton.SetActive(false);
+            FbScoreButton.SetActive(true);
 
             if (Application.loadedLevel == 1)
             {
@@ -42,8 +44,7 @@ public class FBHolder : MonoBehaviour
             }
         }
         else {
-            UIFBShare.SetActive(false);
-            UIFBInvite.SetActive(false);
+            FbScoreButton.SetActive(false);
             UIFBAvatar.SetActive(false);
             UIFBUserName.SetActive(false);
         }
@@ -78,6 +79,7 @@ public class FBHolder : MonoBehaviour
     public void FBLogin()
     {
         FB.Login("email,publish_actions", AuthCallback);
+        UIFBLoginButton.SetActive(false);
     }
 
     void AuthCallback(FBResult result)
@@ -169,6 +171,8 @@ public class FBHolder : MonoBehaviour
     public void QueryScores()
     {
         FB.API("/app/scores?fields=score,user.limit(30)", Facebook.HttpMethod.GET, ScoresCallBack);
+        GameOverPanel.SetActive(false);
+        FBScorePanel.SetActive(true);
     }
 
     private void ScoresCallBack(FBResult result)
@@ -226,18 +230,11 @@ public class FBHolder : MonoBehaviour
             Debug.Log("score submit result: " + result.Text);
         }, scoreData);
     }
-    //void Update()
-    //{
-    //    if (Application.loadedLevel == 1)
-    //    {
-    //        if (FB.IsLoggedIn)
-    //        {
-    //            //UIFBShare.SetActive(false);
-    //            //UIFBInvite.SetActive(false);
-    //            //UIFBAvatar.SetActive(false);
-    //            //UIFBUserName.SetActive(false);
-    //        }
-    //    }
 
-    //}
+    public void closeClick() 
+    {
+        GameOverPanel.SetActive(true);
+        FBScorePanel.SetActive(false);
+    }
+
 }
